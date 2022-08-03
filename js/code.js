@@ -1,9 +1,11 @@
 const aleatorios = document.querySelector(".numeros-a-adivinar");
 const start = document.querySelector(".boton-start");
+const startbtn = document.getElementById("start");
 const botones = document.querySelectorAll(".boton");
 const consola = document.querySelector(".consolita");
 const btnOk = document.querySelector(".boton-check");
 const puntos = document.querySelector(".puntos");
+
 
 
 
@@ -24,7 +26,7 @@ botones.forEach(boton => {
 });
 
 
-const numerales = () => {
+const asteriscos = () => {
     aleatorios.innerHTML = "*****";
     campana = true;
 }
@@ -33,7 +35,7 @@ const numerales = () => {
 let cuentaRandoms = 0;
 let nroSecreto = 0;
 
-start.addEventListener('click', (evnt) => {
+startbtn.addEventListener('click', (evnt) => {
     let minimo = 1;
     let maximo = 9;
     for (i = 0; i <= cuentaRandoms; i++) {
@@ -43,9 +45,9 @@ start.addEventListener('click', (evnt) => {
     aleatorios.innerHTML = random(minimo, maximo);
     nroSecreto = aleatorios.innerHTML;
     if (cuentaRandoms <= 5) {
-        const timeOut = setTimeout(numerales, 3000);
+        const timeOut = setTimeout(asteriscos, 3000);
     } else {
-        const timeOut = setTimeout(numerales, 5000);
+        const timeOut = setTimeout(asteriscos, 5000);
     }
     cuentaRandoms++;
 });
@@ -58,9 +60,12 @@ btnOk.addEventListener('click', (evnt) => {
         cuentaRandoms = 0;
         puntaje = 0;
         puntos.innerHTML = `Puntos: ${puntaje}`;
+        startbtn.disabled = false;
     }  else {
         puntaje += 10;
         puntos.innerHTML = `Puntos: ${puntaje}`;
+        startbtn.disabled = false;
+        start.click();
     }
     consola.innerHTML = "";
     campana = false;

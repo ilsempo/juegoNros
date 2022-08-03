@@ -174,4 +174,11 @@ button:active {
     background-color: var(--color-salmon);
     border-radius: 0 0 1em 1em;
     box-shadow: var(--bs-general);
+    color: var(--color-casiblanco);
+}
+
+.p-del--footer {
+    font-size: small;
+    padding: .5rem .8rem;
+
 }
